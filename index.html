@@ -1,1 +1,75 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Typer++ | Minimalist typing tests</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+    <script defer src="words/english.js"></script>
+    <script defer src="words/french.js"></script>
+    <script defer src="scripts/menu.js"></script>
+    <script defer src="scripts/typing.js"></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-logo">Typer++</div>
+      <menu class="header-menu">
+        <div class="choices" data-mode="lang">
+          <div class="choice choice--active">English</div>
+          <div class="choice">French</div>
+        </div>
+        <div class="choices" data-mode="mode">
+          <div class="choice choice--active">Time</div>
+          <div class="choice">Words</div>
+          <div class="choice">Quote</div>
+          <div class="choice">Code</div>
+        </div>
+        <div class="choices active" data-mode="time">
+          <div class="choice">15</div>
+          <div class="choice choice--active">30</div>
+          <div class="choice">60</div>
+          <div class="choice">120</div>
+        </div>
+        <div class="choices" data-mode="words">
+          <div class="choice">10</div>
+          <div class="choice">25</div>
+          <div class="choice choice--active">50</div>
+          <div class="choice">100</div>
+        </div>
+        <div class="choices" data-mode="code">
+          <div class="choice">Python</div>
+          <div class="choice choice--active">JS</div>
+          <div class="choice">C</div>
+        </div>
+      </menu>
+    </header>
+    <main>
+      <section class="section-stats">
+        <div class="timer"><span>0</span> s</div>
+        <div class="accuracy hidden"><span>0</span> % acc</div>
+        <div class="mistakes hidden"><span>0</span> mistakes</div>
+        <div class="wpm hidden"><span>0</span> wpm</div>
+      </section>
+      <section class="section-typing">
+        <input type="text" class="typing-input-field" />
+        <div class="caret" id="caret"></div>
+        <div class="words"></div>
+      </section>
+      <div class="container">
+        <button class="btn btn--restart">
+          <img src="images/refresh.svg" alt="Restart" class="btn-icon" />
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
