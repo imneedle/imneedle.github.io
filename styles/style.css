@@ -1,0 +1,263 @@
+/* +--------------------+ */
+/* |   General styles   | */
+/* +--------------------+ */
+
+:root {
+  --background-primary: #37383d;
+  --background-secondary: #495057;
+  --background-tertiary: #868e96;
+  --color-primary: #4bbb7d;
+  --color-secondary: #0ca678;
+  --color-tertiary: #087f5b;
+  --text-color: #eee;
+  --caret-color: #fcc419;
+  --error-color: #fd424b;
+  --correct-color: #087f5b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font: 400 1.6rem/1 "Poppins", sans-serif;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+}
+
+/* +------------+ */
+/* |   Header   | */
+/* +------------+ */
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 9.6rem;
+  padding: 2rem 9.6rem;
+
+  background: var(--background-primary);
+  color: var(--text-color);
+}
+
+.header-logo {
+  font: 2rem/1 cursive;
+}
+
+/* +-----------------+ */
+/* |   Header menu   | */
+/* +-----------------+ */
+
+.header-menu {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 1rem;
+  text-transform: lowercase;
+}
+
+.choices {
+  z-index: 1;
+
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.choices[data-mode="time"],
+.choices[data-mode="words"],
+.choices[data-mode="code"] {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.5s, transform 0.5s;
+  transform: translateX(-30%);
+  position: absolute;
+}
+
+.choices.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  grid-row: 3;
+  transform: translateX(0);
+  position: relative;
+}
+
+.choice {
+  position: relative;
+}
+
+.choice:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.choice:not(.choice--active):active::after,
+.choice--active::after {
+  content: "";
+  z-index: -1;
+
+  transform: scale(1.07, 1.05) skewX(-15deg);
+
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+}
+
+.choice:not(.choice--active):active::after {
+  background: var(--background-secondary);
+}
+
+.choice--active {
+  color: var(--background-primary);
+  font-weight: 600;
+}
+
+.choice--active::after {
+  background: var(--color-primary);
+}
+
+/* +-------------------+ */
+/* |   Stats section   | */
+/* +-------------------+ */
+
+.section-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  row-gap: 3rem;
+
+  margin-bottom: 2.4rem;
+
+  font-size: 3rem;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.section-stats span {
+  font-size: 6.4rem;
+  font-weight: 300;
+}
+
+.timer {
+  grid-column: span 3;
+}
+
+/* +--------------------+ */
+/* |   Typing section   | */
+/* +--------------------+ */
+
+.section-typing {
+  background: #f8f9fa;
+  padding-bottom: 4rem;
+  margin-bottom: 3.2rem;
+}
+
+.typing-input-field {
+  opacity: 0;
+  position: absolute;
+}
+
+.typing-input-field ~ #caret {
+  position: absolute;
+  width: 0.4rem;
+  height: 3rem;
+  background: none;
+  transition: all 0.1s linear; /* Enabled for smooth caret animation */
+}
+
+.typing-input-field:focus ~ #caret {
+  background: var(--caret-color);
+}
+
+.words {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 4rem 16rem 0.5rem;
+  max-height: 12rem;
+  overflow: hidden;
+
+  font-size: 3rem;
+}
+
+.word {
+  display: flex;
+}
+
+.word--incorrect {
+  border-bottom: 2px solid var(--error-color);
+  margin-bottom: -2px;
+}
+
+.letter--correct {
+  color: var(--correct-color);
+}
+
+.letter--incorrect {
+  color: var(--error-color);
+}
+
+/* +--------------------+ */
+/* |   Restart button   | */
+/* +--------------------+ */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 10rem;
+  height: 5rem;
+
+  background: var(--color-primary);
+  border-radius: 100px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: var(--color-secondary);
+}
+
+.btn:active {
+  background: var(--color-tertiary);
+}
+
+.btn-icon {
+  width: 3rem;
+  height: 3rem;
+}
