@@ -246,7 +246,7 @@ body {
 .orbit__icon {
   width: 4.5rem;
   aspect-ratio: 1;
-  opacity: 0.6;
+  opacity: 0;
 }
 .orbit__link:link, .orbit__link:visited {
   display: flex;
@@ -260,7 +260,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.6);
-  opacity: 0;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.comp.css.map */

@@ -26,6 +26,7 @@
       left: 50%;
 
       animation: pulsate 1.2s linear 600 * $i * 1ms infinite backwards;
+      transition: width 0.2s;
 
       & > * > * {
         transform: translate(-50%, -50%) rotate($i * 45 * -1deg);
@@ -103,7 +104,7 @@
   &__icon {
     width: 4.5rem;
     aspect-ratio: 1;
-    opacity: 0.6;
+    opacity: 0;
   }
 
   &__link {
@@ -121,7 +122,7 @@
       text-decoration: none;
       text-transform: uppercase;
       color: rgba(#000, 0.6);
-      opacity: 0;
+      opacity: 1;
     }
   }
 }
