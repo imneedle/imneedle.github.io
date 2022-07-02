@@ -1,0 +1,127 @@
+.orbit {
+  height: 100vh;
+  padding: 3rem 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__list {
+    list-style: none;
+    position: relative;
+
+    animation: orbit 120s linear infinite;
+  }
+
+  &__list:hover,
+  &__list:hover &__item-inner {
+    animation-play-state: paused; /* Pause rotation on hover */
+  }
+
+  @for $i from 1 through 8 {
+    &__item:nth-child(#{$i}) {
+      transform: translate(-50%, -50%) rotate($i * 45 * 1deg) translateY(16rem);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      animation: pulsate 1.2s linear 600 * $i * 1ms infinite backwards;
+
+      & > * > * {
+        transform: translate(-50%, -50%) rotate($i * 45 * -1deg);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    }
+  }
+
+  &__item {
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    color: rgba(#000, 0.6);
+
+    &:hover {
+      cursor: pointer;
+      animation-play-state: paused; /* Pause pulsate on hover */
+    }
+
+    &-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      animation: orbit 120s linear infinite reverse; /* Counter the rotation */
+    }
+
+    &--purple {
+      background: var(--color-purple);
+    }
+
+    &--pink {
+      background: var(--color-pink);
+    }
+
+    &--brown {
+      background: var(--color-brown);
+    }
+
+    &--yellow {
+      background: var(--color-yellow);
+    }
+
+    &--blue-dark {
+      background: var(--color-blue-dark);
+    }
+
+    &--orange {
+      background: var(--color-orange);
+    }
+
+    &--blue-light {
+      background: var(--color-blue-light);
+    }
+
+    &--green {
+      background: var(--color-green);
+    }
+  }
+
+  &__item:hover &__icon {
+    opacity: 0;
+  }
+
+  &__item:hover &__link {
+    opacity: 1;
+  }
+
+  &__icon,
+  &__link {
+    transition: all 500ms;
+  }
+
+  &__icon {
+    width: 4.5rem;
+    aspect-ratio: 1;
+    opacity: 0.6;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: rgba(#000, 0.6);
+      opacity: 0;
+    }
+  }
+}

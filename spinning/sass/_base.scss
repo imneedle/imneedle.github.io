@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include responsive-break(device-medium) {
+    font-size: 56.25%;
+  }
+
+  @include responsive-break(device-small) {
+    font-size: 50%;
+  }
+
+  @include responsive-break(device-tiny) {
+    font-size: 43.75%;
+  }
+}
+
+body {
+  font: 400 1rem/1 sans-serif;
+}

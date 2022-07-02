@@ -1,0 +1,19 @@
+@mixin responsive-break($breakpoint) {
+  @if $breakpoint == device-large {
+    @media screen and (max-width: $device-large) {
+      @content;
+    }
+  } @else if $breakpoint == device-medium {
+    @media screen and (max-width: $device-medium) {
+      @content;
+    }
+  } @else if $breakpoint == device-small {
+    @media screen and (max-width: $device-small) {
+      @content;
+    }
+  } @else if $breakpoint == device-tiny {
+    @media screen and (max-width: $device-tiny) {
+      @content;
+    }
+  }
+}
