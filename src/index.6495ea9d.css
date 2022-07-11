@@ -169,6 +169,7 @@ img, video, canvas, svg {
 
 .button {
   cursor: pointer;
+  text-decoration: none;
   width: 17.5rem;
   height: 12rem;
   color: var(--color-white);
