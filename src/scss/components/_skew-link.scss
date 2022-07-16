@@ -1,0 +1,89 @@
+.skew-link {
+  &:link,
+  &:visited {
+    justify-self: center;
+
+    display: inline-block;
+    padding: 1rem 4rem;
+
+    background: var(--color-white);
+    color: var(--color-white);
+    box-shadow: inset 0 0 0 0.5rem var(--color-black);
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+
+    transform: skewX(-15deg);
+
+    position: relative;
+    z-index: 0; // middle-index
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transition: transform 300ms;
+      background: var(--color-black);
+    }
+
+    &::before {
+      right: 49%;
+    }
+
+    &::after {
+      left: 49%;
+    }
+
+    & .skew-link__icon {
+      position: absolute;
+      right: 1rem;
+      fill: var(--color-black);
+      width: 2rem;
+      height: 2rem;
+
+      transform: translateY(300%);
+      transition: transform 300ms;
+    }
+
+    & .skew-link__text {
+      transition: color 300ms;
+    }
+  }
+
+  &:hover {
+    & .skew-link__text {
+      color: var(--color-black);
+    }
+
+    & .skew-link__icon {
+      transform: translateY(0);
+    }
+
+    &::before {
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      transform: translateX(100%);
+    }
+  }
+
+  & > * {
+    display: inline-block;
+    transform: skewX(15deg);
+  }
+
+  &__text {
+  }
+
+  &__icon {
+    position: absolute;
+  }
+}

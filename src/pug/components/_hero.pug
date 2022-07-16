@@ -1,0 +1,77 @@
+mixin socials__link(href, icon)
+  a.socials__link(href=`${href}`)
+    svg.socials__icon
+      use(xlink:href=`/src/icons/icons.svg#icon-${icon}`)
+
+section.hero
+  include ../layout/_header.pug
+  h1.hero__heading
+    .word
+      span H
+      span i
+    .word
+      span 👋
+      span ,
+    .word
+      span m
+      span y
+    .word
+      span n
+      span a
+      span m
+      span e
+    .word
+      span i
+      span s
+    .word.break
+      span N
+      span e
+      span i
+      span l
+    .word.break
+      span S
+      span o
+      span f
+      span t
+      span w
+      span a
+      span r
+      span e
+      span &nbsp;
+      span d
+      span e
+      span v
+      span e
+      span l
+      span o
+      span p
+      span e
+      span r
+    .word
+      span 4
+      span t
+      span h
+    .word
+      span y
+      span e
+      span a
+      span r
+    .word
+      span s
+      span t
+      span u
+      span d
+      span e
+      span n
+      span t
+  img.hero__image(src="/src/images/space.svg")
+  article.socials.section--hidden.section--hidden-right
+    +socials__link("https://github.com/imneedle", "github")
+    +socials__link("https://www.linkedin.com/in/neil-desplats", "linkedin")
+    +socials__link("#contact", "mail4")
+  .scroll-wheel.section--hidden.section--hidden-left
+    .mouse
+    .arrows
+      span.arrow
+      span.arrow
+      span.arrow

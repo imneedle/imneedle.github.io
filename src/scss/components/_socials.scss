@@ -1,0 +1,28 @@
+.socials {
+  align-self: center;
+  margin-top: auto;
+
+  position: relative;
+  z-index: 2; // middle-index
+
+  list-style: none;
+  color: var(--color-white);
+  fill: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30rem;
+
+  transition: all 750ms 2000ms;
+
+  &__link {
+    &:hover {
+      animation: glitch 200ms infinite;
+    }
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+  }
+}

@@ -1,0 +1,34 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media screen and (max-width: 58.125em /* 930px */) {
+    font-size: 56.25%;
+  }
+
+  @media screen and (max-width: 37.5em /* 600px */) {
+    font-size: 50%;
+  }
+
+  @media screen and (max-width: 28.125em /* 450px */) {
+    font-size: 43.75%;
+  }
+}
+
+body {
+  font: 400 1rem/1 sans-serif;
+  overflow-x: hidden;
+}

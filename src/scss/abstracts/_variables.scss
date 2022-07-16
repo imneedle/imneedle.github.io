@@ -1,0 +1,35 @@
+:root {
+  --color-white: #fff;
+  --color-black: #111;
+
+  --color-purple: #7510f7;
+
+  --color-grey-light: #d4d4d8;
+  --color-grey: #71717a;
+  --color-grey-dark: #3f3f46;
+  --color-grey-dark-2: #18181b;
+
+  --color-red: #f44336;
+
+  --color-blue-light: #2196f3;
+  --color-blue-light-2: #eff6ff;
+  --color-blue-light-3: #93c5fd;
+  --color-blue-dark: #1b1e27;
+  --color-blue-dark-2: #171a21;
+
+  --color-orbit-green: hsl(123, 47%, 74%);
+  --color-orbit-blue: hsl(210, 47%, 74%);
+  --color-orbit-orange: hsl(34, 93%, 77%);
+  --color-orbit-purple: hsl(231, 44%, 76%);
+  --color-orbit-yellow: hsl(54, 76%, 79%);
+  --color-orbit-brown: hsl(20, 41%, 69%);
+  --color-orbit-red: hsl(0, 59%, 76%);
+  --color-orbit-pink: hsl(295, 42%, 72%);
+  --color-orbit-white: hsl(0, 0%, 100%);
+
+  --distance: 20rem;
+
+  @media screen and (max-width: 78.75em /* 1260px */) {
+    --distance: 16rem;
+  }
+}

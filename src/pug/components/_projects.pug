@@ -1,0 +1,41 @@
+mixin project(title, description, url, lazyUrl, linkUrl, linkText)
+  - if (description)
+    input.project__input(
+      id=`${title.toLowerCase().replace(/ /g, '-')}`,
+      type="checkbox"
+    )
+    .modal
+      .modal__container
+        h2.modal__heading= title
+        - for (const line of description.split('\n'))
+          p.modal__paragraph= line
+        label.project__close(for=`${title.toLowerCase().replace(/ /g, '-')}`)
+          span &nbsp;
+  article.project(data-title=`${title}`)
+    h2.project__title= title
+    img.lazy-image.project__image(
+      src=`/src/images/projects/${lazyUrl}`,
+      data-src=`/src/images/projects/${url}`
+    )
+    - if (description)
+      label.project__checkbox.rainbow-link.project__link(
+        for=`${title.toLowerCase().replace(/ /g, '-')}`
+      )
+        span= linkText
+        span &nbsp;&#8250;
+    - else
+      a.project__link.rainbow-link(href=`${linkUrl}`)
+        span= linkText
+        span &nbsp;&#8250;
+
+section#projects.projects.section--hidden.section--hidden-bottom
+  h2.projects__heading My Recent Work
+  p.projects__paragraph Here are a few projects I've worked on recently. Want to see more?&nbsp;
+    a.projects__link(href="#contact") Email me.
+
+  +project("Natours", "", "natours.png", "natours-lazy.png", "/projects/natours", "Visit website")
+  +project("Nexter", "", "nexter.png", "nexter-lazy.png", "/projects/nexter", "Visit website")
+  +project("Mapping Antenna Emitter", "Development of a Python API.\nExtracts radio transmitting relays (antennas) and create an overlay to display them in Google Maps", "antennas.png", "antennas-lazy.png", "#", "Learn more")
+  +project("Graphical User Interface", "Built an fully functionnal GUI library using C.\nWith working buttons, frames, images, grids and more, I built multiple games such as minesweeper, 2048 or a 15 puzzle (taquin)", "gui.jpg", "gui-lazy.jpg", "#", "Learn more")
+  +project("Typer++", "", "typer.png", "typer-lazy.png", "/projects/typing", "Visit website")
+  +project("Amazon Echo (Alexa) Skills", "Created numerous Amazon Echo skills using Python.\nImproved \"get weather\" skills using various APIs to display rain radars or other information depending on the weather.\nOptimal \"time-to-leave\" using walking and public transports real-time data.", "alexa.jpg", "alexa-lazy.jpg", "#", "Learn more")

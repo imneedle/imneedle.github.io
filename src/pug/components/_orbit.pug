@@ -1,0 +1,20 @@
+mixin orbit__item(icon, text)
+  li.orbit__item
+    .orbit__item--counter-rotation-orbit
+      .orbit__item--pulsate
+        .orbit__item--counter-rotation-placement
+          svg.orbit__icon
+            use(xlink:href=`/src/icons/icons.svg#icon-${icon}`)
+          span.orbit__text= text
+
+article.orbit.section--hidden.animations--paused.section--hidden-right
+  h2.orbit__title Skills
+  ul.orbit__list
+    +orbit__item('c', 'Experienced C Programmer')
+    +orbit__item('mongodb', 'MongoDD and NoSQL Databases')
+    +orbit__item('javascript', 'Client-Side Javascript')
+    +orbit__item('sass', 'Advanced CSS and Sass')
+    +orbit__item('python', 'Experienced Python Programmer')
+    +orbit__item('cpp', 'Experienced C++ Programmer')
+    +orbit__item('node-dot-js', 'Back-End Development')
+    +orbit__item('pug', 'Dynamic Server-Side Rendering')

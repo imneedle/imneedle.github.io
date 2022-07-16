@@ -1,0 +1,27 @@
+.section--hidden {
+  opacity: 0;
+  visibility: hidden;
+
+  &#{&}-bottom {
+    transform: translateY(8rem);
+  }
+
+  &#{&}-right {
+    transform: translateX(12rem);
+  }
+
+  &#{&}-left {
+    transform: translateX(-12rem);
+  }
+}
+
+.animations--paused {
+  &,
+  & * {
+    animation-play-state: paused !important;
+  }
+}
+
+img[data-src]:not(.lazy-image) {
+  animation: blur 500ms reverse;
+}

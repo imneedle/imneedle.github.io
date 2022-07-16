@@ -1,0 +1,23 @@
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UT-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width,initial-scale=1")
+    title Needle &mdash; Portfolio Homepage
+
+    link(rel="stylesheet", type="text/css", href="/src/css/style.css")
+
+    script(src="/src/js/index.js", defer, type="module")
+
+  body
+  .container
+    include components/_hero
+
+    include components/_projects
+
+    include layout/_about
+
+    section#contact.contact.section--hidden.section--hidden-bottom
+      include components/_form
+
+    include layout/_footer

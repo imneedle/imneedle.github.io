@@ -1,0 +1,8 @@
+mixin nav__link(href, text)
+  a.nav__link(href=`${href}`, data-text=`${text}`)
+    span= text
+
+nav.nav
+  +nav__link('#projects', 'Projects')
+  +nav__link('#about', 'About')
+  +nav__link('#contact', 'Contact')

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Europa";
+  src: url("/src/fonts/Europa\ Regular/Europa\ Regular.woff2") format("woff2"),
+    url("/src/fonts/Europa\ Regular/Europa\ Regular.woff") format("woff"),
+    url("/src/fonts/Europa\ Regular/Europa\ Regular.ttf") format("ttf"),
+    url("/src/fonts/Europa\ Regular/Europa\ Regular.eot") format("eot"),
+    url("/src/fonts/Europa\ Regular/Europa\ Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Eurostile";
+  src: url("/src/fonts/Eurostile/Eurostile.woff2") format("woff2"),
+    url("/src/fonts/Eurostile/Eurostile.woff") format("woff"),
+    url("/src/fonts/Eurostile/Eurostile.ttf") format("ttf"),
+    url("/src/fonts/Eurostile/Eurostile.eot") format("eot"),
+    url("/src/fonts/Eurostile/Eurostile.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Europa", sans-serif;
+}
+
+h2 {
+  font-family: "Eurostile", sans-serif;
+}

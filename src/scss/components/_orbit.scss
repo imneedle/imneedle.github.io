@@ -1,0 +1,165 @@
+.orbit {
+  @media screen and (max-width: 63.75em /* 1020px */) {
+    grid-column: 1;
+    width: 100vw;
+  }
+
+  position: relative;
+  grid-column: 2;
+  width: 50vw;
+  height: 50vh;
+  z-index: 20;
+  @include grid-center;
+
+  transition: opacity 1500ms, transform 1s;
+  transition-delay: 750ms;
+
+  &__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  &__icon {
+    @include absolute-center;
+    width: 6rem;
+    height: 6rem;
+    opacity: 1;
+
+    transition: transform 300ms;
+  }
+
+  &__image {
+    @include absolute-center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 3rem;
+    object-fit: cover;
+    filter: brightness(0.5);
+    z-index: 1;
+  }
+
+  $num-of-items: 8;
+  $setup-delay: 1500ms;
+  $orbit-animation-duration: 120s;
+  $orbit-animation-delay: $num-of-items * calc($setup-delay / 2.4);
+  &__list {
+    @include absolute-center;
+    list-style: none;
+    animation: orbit $orbit-animation-duration $orbit-animation-delay linear
+      infinite;
+    z-index: 2;
+
+    &:hover,
+    &:hover .orbit__item--counter-rotation-orbit {
+      animation-play-state: paused;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+
+    width: 10rem;
+    height: 10rem;
+
+    border-radius: 50%;
+
+    &:hover .orbit__item--pulsate {
+      animation-play-state: paused;
+    }
+
+    &--counter-rotation-orbit {
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      background: inherit;
+      animation: orbit $orbit-animation-duration $orbit-animation-delay linear
+        infinite reverse;
+    }
+
+    &--counter-rotation-placement {
+      // opacity: 0;
+      // animation: show 300ms $orbit-animation-delay linear forwards;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      background: inherit;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include grid-center;
+      overflow: hidden;
+    }
+
+    &--pulsate {
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      background: inherit;
+      will-change: transform;
+      animation: pulsate 300ms linear infinite alternate;
+    }
+
+    $num-of-items: 8;
+    @for $i from 1 through $num-of-items {
+      &:nth-child(#{$i}) {
+        // transform: translate(-50%, -50%)
+        //   scale(0.5)
+        //   rotate(360 / $num-of-items * $i * 1deg)
+        //   translateY(10rem);
+
+        @include orbit-setup($i);
+
+        & .orbit__item--counter-rotation-placement {
+          transform: translate(-50%, -50%)
+            rotate(calc(360 / $num-of-items) * $i * -1deg);
+        }
+
+        & .orbit__item--pulsate {
+          animation-delay: 200ms * $i + $orbit-animation-delay;
+        }
+      }
+
+      &:nth-child(1),
+      &:nth-child(5),
+      &:nth-child(6) {
+        color: #0085ca;
+      }
+
+      &:nth-child(2),
+      &:nth-child(7) {
+        color: #589636;
+      }
+
+      &:nth-child(4),
+      &:nth-child(8) {
+        color: #c69;
+      }
+    }
+
+    &:hover {
+      & svg {
+        transform: translateX(-300%);
+      }
+
+      & span {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__text {
+    padding: 1rem;
+    display: inline-block;
+    font-size: 1.4rem;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(2);
+    transition: all 300ms 150ms;
+  }
+}

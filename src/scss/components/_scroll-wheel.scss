@@ -1,0 +1,65 @@
+$mouse-width: 3rem;
+
+.scroll-wheel {
+  align-self: center;
+  padding-bottom: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.6rem;
+
+  width: max-content;
+
+  transition: all 750ms 2000ms;
+}
+
+.mouse {
+  border: 2px solid var(--color-white);
+  width: $mouse-width;
+  height: 5rem;
+  border-radius: 50vh;
+  position: relative;
+  z-index: 2; // middle-index
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--color-white);
+    animation: scroll-circle 200ms linear infinite alternate;
+  }
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow {
+  display: inline-block;
+  width: calc($mouse-width / 2);
+  height: calc($mouse-width / 2);
+  transform: rotate(45deg);
+
+  border-right: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--color-white);
+
+  animation: scroll-arrow 1.5s linear infinite;
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 100ms;
+    }
+  }
+}

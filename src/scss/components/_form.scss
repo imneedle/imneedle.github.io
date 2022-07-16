@@ -1,0 +1,125 @@
+.contact {
+  grid-row: contact-start;
+  grid-column: full-start / full-end;
+
+  display: grid;
+  place-items: center;
+  font-family: "eurostile", sans-serif;
+
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  padding: 20rem 0 8rem;
+  clip-path: polygon(0 0, 50% 10vh, 100% 0, 100% 100%, 0 100%);
+  transition: all 500ms;
+  margin-top: -15rem;
+}
+
+.form {
+  width: 30vw;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media screen and (max-width: 87.5em /* 1400px */) {
+    width: 40vw;
+  }
+
+  @media screen and (max-width: 63.75em /* 1020px */) {
+    width: 50vw;
+  }
+
+  @media screen and (max-width: 34.375em /* 550px */) {
+    width: 70vw;
+  }
+
+  &__label,
+  &__input,
+  &__button,
+  ::placeholder {
+    appearance: none;
+    border: none;
+
+    background: var(--color-blue-dark-2);
+    color: inherit;
+    font: inherit;
+    font-family: inherit;
+
+    display: block;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  &__area {
+    height: 12rem;
+  }
+
+  &__title {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 150%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 0.5rem;
+      background: currentColor;
+    }
+  }
+
+  &__component {
+    position: relative;
+  }
+
+  &__label {
+    width: auto;
+    background: none;
+    color: var(--color-grey-light);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(0);
+
+    position: absolute;
+    top: 0.25rem;
+  }
+
+  &__input:placeholder-shown ~ &__label {
+    animation: form-label-slide-hide 1s forwards;
+  }
+
+  &__input:not(:placeholder-shown) ~ &__label {
+    animation: form-label-slide-show 1s forwards;
+  }
+
+  &__input,
+  &__button {
+    transition: box-shadow 500ms;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 0.5rem rgba(#fff, 0.5);
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--color-white);
+    width: max-content;
+    padding: 1rem 4rem;
+    border: 2px solid currentColor;
+    transition: all 500ms;
+    margin-left: auto;
+
+    &:hover {
+      background: var(--color-blue-light-3);
+      border-color: transparent;
+    }
+  }
+}

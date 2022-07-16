@@ -1,0 +1,12 @@
+mixin footer__item(href, icon)
+  li.footer__item
+    a.footer__link(href=`${href}`)
+      svg.footer__icon: use(xlink:href=`/src/icons/icons.svg#icon-${icon}`)
+
+footer.footer
+  ul.footer__list
+    +footer__item('https://www.linkedin.com/in/neil-desplats', 'linkedin')
+    +footer__item('https://github.com/imneedle', 'github')
+  button.footer__home
+    svg.footer__icon: use(xlink:href="/src/icons/icons.svg#icon-arrow-up2")
+  p.footer__legal &copy; 2022 &mdash; Neil Desplats.

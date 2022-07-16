@@ -1,0 +1,16 @@
+mixin skill(icon, heading, text)
+  .skill
+    .skill__icon-wrapper
+      svg.skill__icon: use(xlink:href=`/src/icons/icons.svg#icon-${icon}`)
+    h2.skill__heading= heading
+    p.skill__text= text
+
+section#about.about.section--hidden.section--hidden-bottom
+  h2.about__heading Hi again! Nice to meet you.
+  p.about__paragraph I am a 4th year student at ENSIMAG doing my master's degree. <br />I've done various projects to solve real-world problems and to learn new skills at the same time.
+  article.skills.section--hidden.section--hidden-left
+    +skill('document-code', 'Back-end Development', 'I appreciate adding functionality and dynamic features improve projects')
+    +skill('images', 'Front-end Development', 'I enjoy coding things from scratch and see everything come to life in the browser')
+    +skill('display', 'Software Development', 'I am passionate about building softwares that improve everyday tasks')
+
+  include ../components/_orbit
